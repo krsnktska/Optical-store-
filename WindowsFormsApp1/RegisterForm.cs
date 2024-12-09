@@ -47,14 +47,15 @@ namespace Coursework
 					WHERE phone_number = @phoneNumber OR email = @email";
 
 				SqlCommand cmdCheck = new SqlCommand(checkQuery, osDataBase.getConnection());
-				int userIsExists = (int)cmdCheck.ExecuteScalar();
-				cmdCheck.Parameters.AddWithValue("@phone_number", phoneNumber);
+				cmdCheck.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 				cmdCheck.Parameters.AddWithValue("@email", email);
+
+				int userIsExists = (int)cmdCheck.ExecuteScalar();
 
 				if (userIsExists > 0)
 				{
 					mismatchedLabel.Visible = true;
-					mismatchedLabel.Location = new Point();
+					mismatchedLabel.Location = new Point(50, 510);
 					mismatchedLabel.Text = "Користувач з таким номером телефону або електронною поштою вже існує.";
 					return;
 				}
@@ -67,13 +68,13 @@ namespace Coursework
 				cmdInsert.Parameters.AddWithValue("@surname", surname);
 				cmdInsert.Parameters.AddWithValue("@name", name);
 				cmdInsert.Parameters.AddWithValue("@patronymic", patronymic);
-				cmdInsert.Parameters.AddWithValue("@phone_number", phoneNumber);
+				cmdInsert.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 				cmdInsert.Parameters.AddWithValue("@email", email);
 				cmdInsert.Parameters.AddWithValue("@sex", sex);
 				cmdInsert.Parameters.AddWithValue("@password", password);
 
 				cmdInsert.ExecuteNonQuery();
-
+				MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			}
 			catch (Exception ex)
@@ -83,29 +84,10 @@ namespace Coursework
 
 			finally
 			{
-				MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 				osDataBase.closeConnection();
 			}
 		}
-
-		/*private void passwordConfirmTextBox_TextChanged(object sender, System.EventArgs e)
-		{
-			string password = passwordTextBox.Text.Trim();
-			string passwordConfirm = passwordConfirmTextBox.Text.Trim();
-			mismatchedLabel.Visible = false;
-
-			if (string.IsNullOrEmpty(passwordConfirm) && password == passwordConfirm)
-			{
-				mismatchedLabel.Visible = false;
-			}
-			else
-			{
-				mismatchedLabel.Visible = true;
-				mismatchedLabel.Location = new Point.Empty();
-				mismatchedLabel.Text = "Паролі не співпадають";
-			}
-			Validate();
-		}*/
 
 		private void ValidateChanges()
 		{
@@ -136,8 +118,8 @@ namespace Coursework
 				}
 				else if (!System.Text.RegularExpressions.Regex.IsMatch(phoneNumberTextBox.Text.Trim(), @"^\+380\d{9}$"))
 				{
-					mismatchedLabel.Visible = true;
 					mismatchedLabel.Text = "Введіть номер телефону у форматі +380XXXXXXXXX.";
+					mismatchedLabel.Visible = true;
 					mismatchedLabel.Location = new Point(342, 271);
 				}
 				else
@@ -146,35 +128,14 @@ namespace Coursework
 					mismatchedLabel.Location = new Point(342, 271);
 				}
 			}
-			else if (textBox == passwordTextBox || textBox == passwordConfirmTextBox)
-			{
 
-				if (passwordTextBox.Text.Trim() != passwordConfirmTextBox.Text.Trim())
-				{
-					mismatchedLabel.Visible = true;
-					mismatchedLabel.Location = new Point(147, 508);
-					mismatchedLabel.Text = "Паролі не співпадають.";
-				}
-
-				else if (string.IsNullOrEmpty(passwordConfirmTextBox.Text.Trim()))
-				{
-					mismatchedLabel.Visible = true;
-					mismatchedLabel.Location = new Point(147, 508);
-					mismatchedLabel.Text = "Введіть повторно пароль.";
-				}
-				else
-				{
-					mismatchedLabel.Visible = false;
-				}
-			}
-			//
 			else if (textBox == surnameTextBox && string.IsNullOrEmpty(surnameTextBox.Text.Trim()))
 			{
+				mismatchedLabel.Text = "Введіть прізвище.";
 				mismatchedLabel.Visible = true;
 				mismatchedLabel.Location = new Point(342, 119);
-				mismatchedLabel.Text = "Введіть прізвище.";
 			}
-			//
+
 			else if (textBox == nameTextBox && string.IsNullOrEmpty(nameTextBox.Text.Trim()))
 			{
 				mismatchedLabel.Visible = true;
@@ -188,9 +149,32 @@ namespace Coursework
 
 			ValidateChanges();
 		}
-
 		private void textBoxChanged(object sender, EventArgs e)
 		{
+			TextBox textBox = sender as TextBox;
+
+			if (textBox == passwordTextBox || textBox == passwordConfirmTextBox)
+			{
+
+				if (passwordTextBox.Text.Trim() != passwordConfirmTextBox.Text.Trim())
+				{
+					mismatchedLabel.Text = "Паролі не співпадають.";
+					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point(147, 508);
+				}
+
+				else if (string.IsNullOrEmpty(passwordConfirmTextBox.Text.Trim()))
+				{
+					mismatchedLabel.Text = "Введіть повторно пароль.";
+					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point(147, 508);
+				}
+				else
+				{
+					mismatchedLabel.Visible = false;
+				}
+			}
+
 			ValidateChanges();
 		}
 	}
