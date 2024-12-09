@@ -1,9 +1,8 @@
-﻿using Coursework;
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace Coursework
 {
 	public partial class Реєстрація : Form
 	{
