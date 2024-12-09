@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Coursework
@@ -53,6 +54,7 @@ namespace Coursework
 				if (userIsExists > 0)
 				{
 					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point();
 					mismatchedLabel.Text = "Користувач з таким номером телефону або електронною поштою вже існує.";
 					return;
 				}
@@ -86,7 +88,7 @@ namespace Coursework
 			}
 		}
 
-		private void passwordConfirmTextBox_TextChanged(object sender, System.EventArgs e)
+		/*private void passwordConfirmTextBox_TextChanged(object sender, System.EventArgs e)
 		{
 			string password = passwordTextBox.Text.Trim();
 			string passwordConfirm = passwordConfirmTextBox.Text.Trim();
@@ -99,12 +101,13 @@ namespace Coursework
 			else
 			{
 				mismatchedLabel.Visible = true;
+				mismatchedLabel.Location = new Point.Empty();
 				mismatchedLabel.Text = "Паролі не співпадають";
 			}
 			Validate();
-		}
+		}*/
 
-		private void Validate()
+		private void ValidateChanges()
 		{
 			bool isValid = (!string.IsNullOrEmpty(surnameTextBox.Text)
 				&&
@@ -119,7 +122,6 @@ namespace Coursework
 
 			registrationButton.Enabled = isValid;
 		}
-
 		private void textBoxLeaved(object sender, EventArgs e)
 		{
 			TextBox textBox = sender as TextBox;
@@ -130,15 +132,18 @@ namespace Coursework
 				{
 					mismatchedLabel.Text = "Заповніть номер телефону.";
 					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point(342, 271);
 				}
 				else if (!System.Text.RegularExpressions.Regex.IsMatch(phoneNumberTextBox.Text.Trim(), @"^\+380\d{9}$"))
 				{
 					mismatchedLabel.Visible = true;
 					mismatchedLabel.Text = "Введіть номер телефону у форматі +380XXXXXXXXX.";
+					mismatchedLabel.Location = new Point(342, 271);
 				}
 				else
 				{
 					mismatchedLabel.Visible = false;
+					mismatchedLabel.Location = new Point(342, 271);
 				}
 			}
 			else if (textBox == passwordTextBox || textBox == passwordConfirmTextBox)
@@ -146,13 +151,15 @@ namespace Coursework
 
 				if (passwordTextBox.Text.Trim() != passwordConfirmTextBox.Text.Trim())
 				{
-					mismatchedLabel.Text = "Паролі не співпадають.";
 					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point(147, 508);
+					mismatchedLabel.Text = "Паролі не співпадають.";
 				}
 
 				else if (string.IsNullOrEmpty(passwordConfirmTextBox.Text.Trim()))
 				{
 					mismatchedLabel.Visible = true;
+					mismatchedLabel.Location = new Point(147, 508);
 					mismatchedLabel.Text = "Введіть повторно пароль.";
 				}
 				else
@@ -160,27 +167,31 @@ namespace Coursework
 					mismatchedLabel.Visible = false;
 				}
 			}
+			//
 			else if (textBox == surnameTextBox && string.IsNullOrEmpty(surnameTextBox.Text.Trim()))
 			{
 				mismatchedLabel.Visible = true;
+				mismatchedLabel.Location = new Point(342, 119);
 				mismatchedLabel.Text = "Введіть прізвище.";
 			}
+			//
 			else if (textBox == nameTextBox && string.IsNullOrEmpty(nameTextBox.Text.Trim()))
 			{
 				mismatchedLabel.Visible = true;
 				mismatchedLabel.Text = "Введіть ім'я.";
+				mismatchedLabel.Location = new Point(342, 164);
 			}
 			else
 			{
 				mismatchedLabel.Visible = false;
 			}
 
-			Validate();
+			ValidateChanges();
 		}
 
 		private void textBoxChanged(object sender, EventArgs e)
 		{
-			Validate();
+			ValidateChanges();
 		}
 	}
 }

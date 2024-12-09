@@ -54,7 +54,7 @@
 			// 
 			this.registrationLabel.AutoSize = true;
 			this.registrationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.registrationLabel.Location = new System.Drawing.Point(140, 40);
+			this.registrationLabel.Location = new System.Drawing.Point(147, 40);
 			this.registrationLabel.Name = "registrationLabel";
 			this.registrationLabel.Size = new System.Drawing.Size(212, 40);
 			this.registrationLabel.TabIndex = 0;
@@ -63,7 +63,7 @@
 			// registrationButton
 			// 
 			this.registrationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.registrationButton.Location = new System.Drawing.Point(148, 525);
+			this.registrationButton.Location = new System.Drawing.Point(147, 525);
 			this.registrationButton.Name = "registrationButton";
 			this.registrationButton.Size = new System.Drawing.Size(194, 39);
 			this.registrationButton.TabIndex = 1;
@@ -110,7 +110,7 @@
 			// 
 			this.nameLabel.AutoSize = true;
 			this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.nameLabel.Location = new System.Drawing.Point(144, 145);
+			this.nameLabel.Location = new System.Drawing.Point(147, 145);
 			this.nameLabel.Name = "nameLabel";
 			this.nameLabel.Size = new System.Drawing.Size(100, 16);
 			this.nameLabel.TabIndex = 7;
@@ -120,7 +120,7 @@
 			// 
 			this.surnameLabel.AutoSize = true;
 			this.surnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.surnameLabel.Location = new System.Drawing.Point(144, 97);
+			this.surnameLabel.Location = new System.Drawing.Point(147, 97);
 			this.surnameLabel.Name = "surnameLabel";
 			this.surnameLabel.Size = new System.Drawing.Size(142, 16);
 			this.surnameLabel.TabIndex = 8;
@@ -130,7 +130,7 @@
 			// 
 			this.patronymicLabel.AutoSize = true;
 			this.patronymicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.patronymicLabel.Location = new System.Drawing.Point(144, 195);
+			this.patronymicLabel.Location = new System.Drawing.Point(147, 195);
 			this.patronymicLabel.Name = "patronymicLabel";
 			this.patronymicLabel.Size = new System.Drawing.Size(155, 16);
 			this.patronymicLabel.TabIndex = 9;
@@ -140,7 +140,7 @@
 			// 
 			this.emailLabel.AutoSize = true;
 			this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.emailLabel.Location = new System.Drawing.Point(144, 300);
+			this.emailLabel.Location = new System.Drawing.Point(147, 300);
 			this.emailLabel.Name = "emailLabel";
 			this.emailLabel.Size = new System.Drawing.Size(111, 16);
 			this.emailLabel.TabIndex = 10;
@@ -150,7 +150,7 @@
 			// 
 			this.phone_numberLabel.AutoSize = true;
 			this.phone_numberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.phone_numberLabel.Location = new System.Drawing.Point(144, 249);
+			this.phone_numberLabel.Location = new System.Drawing.Point(147, 249);
 			this.phone_numberLabel.Name = "phone_numberLabel";
 			this.phone_numberLabel.Size = new System.Drawing.Size(198, 16);
 			this.phone_numberLabel.TabIndex = 11;
@@ -169,7 +169,6 @@
 			this.passwordConfirmTextBox.Name = "passwordConfirmTextBox";
 			this.passwordConfirmTextBox.Size = new System.Drawing.Size(194, 20);
 			this.passwordConfirmTextBox.TabIndex = 13;
-			this.passwordConfirmTextBox.TextChanged += new System.EventHandler(this.passwordConfirmTextBox_TextChanged);
 			// 
 			// sexComboBox
 			// 
@@ -187,7 +186,7 @@
 			// 
 			this.sexLabel.AutoSize = true;
 			this.sexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.sexLabel.Location = new System.Drawing.Point(144, 351);
+			this.sexLabel.Location = new System.Drawing.Point(147, 351);
 			this.sexLabel.Name = "sexLabel";
 			this.sexLabel.Size = new System.Drawing.Size(109, 16);
 			this.sexLabel.TabIndex = 15;
@@ -197,7 +196,7 @@
 			// 
 			this.passwordLabel.AutoSize = true;
 			this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.passwordLabel.Location = new System.Drawing.Point(145, 403);
+			this.passwordLabel.Location = new System.Drawing.Point(147, 403);
 			this.passwordLabel.Name = "passwordLabel";
 			this.passwordLabel.Size = new System.Drawing.Size(156, 16);
 			this.passwordLabel.TabIndex = 16;
@@ -207,7 +206,7 @@
 			// 
 			this.passwordConfirmLabel.AutoSize = true;
 			this.passwordConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.passwordConfirmLabel.Location = new System.Drawing.Point(145, 462);
+			this.passwordConfirmLabel.Location = new System.Drawing.Point(147, 462);
 			this.passwordConfirmLabel.Name = "passwordConfirmLabel";
 			this.passwordConfirmLabel.Size = new System.Drawing.Size(139, 16);
 			this.passwordConfirmLabel.TabIndex = 17;
@@ -226,7 +225,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 643);
+			this.ClientSize = new System.Drawing.Size(484, 646);
 			this.Controls.Add(this.mismatchedLabel);
 			this.Controls.Add(this.passwordConfirmLabel);
 			this.Controls.Add(this.passwordLabel);
