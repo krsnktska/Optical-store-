@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using WindowsFormsApp1.Properties;
 
 namespace Coursework
 {
 	public partial class Main : System.Windows.Forms.Form
 	{
+		private bool isPasswordVisible = false;
 
 		public Main()
 		{
 			InitializeComponent();
+			StartPosition = FormStartPosition.CenterScreen;
 		}
 
 		OSDataBase osDataBase = new OSDataBase();
@@ -98,6 +101,22 @@ namespace Coursework
 		{
 			Реєстрація registerForm = new Реєстрація();
 			registerForm.Show();
+		}
+
+		private void visibleButton_Click(object sender, EventArgs e) //форма входу
+		{
+			if (isPasswordVisible)
+			{
+				visibleButton.Image = Resources.visibility_off_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordTextBox.UseSystemPasswordChar = false;
+				isPasswordVisible = false;
+			}
+			else
+			{
+				visibleButton.Image = Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordTextBox.UseSystemPasswordChar = true;
+				isPasswordVisible = true;
+			}
 		}
 	}
 }

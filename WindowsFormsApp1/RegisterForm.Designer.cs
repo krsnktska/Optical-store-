@@ -48,6 +48,8 @@
 			this.passwordLabel = new System.Windows.Forms.Label();
 			this.passwordConfirmLabel = new System.Windows.Forms.Label();
 			this.mismatchedLabel = new System.Windows.Forms.Label();
+			this.visibleButton = new System.Windows.Forms.Button();
+			this.visibleConfirmButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// registrationLabel
@@ -98,6 +100,7 @@
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
 			this.phoneNumberTextBox.Size = new System.Drawing.Size(194, 20);
 			this.phoneNumberTextBox.TabIndex = 5;
+			this.phoneNumberTextBox.Text = "+380000000000";
 			// 
 			// emailTextBox
 			// 
@@ -105,6 +108,7 @@
 			this.emailTextBox.Name = "emailTextBox";
 			this.emailTextBox.Size = new System.Drawing.Size(194, 20);
 			this.emailTextBox.TabIndex = 6;
+			this.emailTextBox.Text = "example@gmail.com";
 			// 
 			// nameLabel
 			// 
@@ -162,6 +166,7 @@
 			this.passwordTextBox.Name = "passwordTextBox";
 			this.passwordTextBox.Size = new System.Drawing.Size(194, 20);
 			this.passwordTextBox.TabIndex = 12;
+			this.passwordTextBox.UseSystemPasswordChar = true;
 			// 
 			// passwordConfirmTextBox
 			// 
@@ -169,6 +174,7 @@
 			this.passwordConfirmTextBox.Name = "passwordConfirmTextBox";
 			this.passwordConfirmTextBox.Size = new System.Drawing.Size(194, 20);
 			this.passwordConfirmTextBox.TabIndex = 13;
+			this.passwordConfirmTextBox.UseSystemPasswordChar = true;
 			// 
 			// sexComboBox
 			// 
@@ -221,11 +227,34 @@
 			this.mismatchedLabel.Size = new System.Drawing.Size(0, 13);
 			this.mismatchedLabel.TabIndex = 18;
 			// 
+			// visibleButton
+			// 
+			this.visibleButton.BackColor = System.Drawing.Color.Transparent;
+			this.visibleButton.Image = global::WindowsFormsApp1.Properties.Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+			this.visibleButton.Location = new System.Drawing.Point(348, 423);
+			this.visibleButton.Name = "visibleButton";
+			this.visibleButton.Size = new System.Drawing.Size(30, 30);
+			this.visibleButton.TabIndex = 19;
+			this.visibleButton.UseVisualStyleBackColor = false;
+			this.visibleButton.Click += new System.EventHandler(this.visibleButton_Click);
+			// 
+			// visibleConfirmButton
+			// 
+			this.visibleConfirmButton.Image = global::WindowsFormsApp1.Properties.Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+			this.visibleConfirmButton.Location = new System.Drawing.Point(348, 476);
+			this.visibleConfirmButton.Name = "visibleConfirmButton";
+			this.visibleConfirmButton.Size = new System.Drawing.Size(30, 30);
+			this.visibleConfirmButton.TabIndex = 20;
+			this.visibleConfirmButton.UseVisualStyleBackColor = true;
+			this.visibleConfirmButton.Click += new System.EventHandler(this.visibleConfirmButton_Click);
+			// 
 			// Реєстрація
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(484, 646);
+			this.Controls.Add(this.visibleConfirmButton);
+			this.Controls.Add(this.visibleButton);
 			this.Controls.Add(this.mismatchedLabel);
 			this.Controls.Add(this.passwordConfirmLabel);
 			this.Controls.Add(this.passwordLabel);
@@ -274,5 +303,7 @@
 		private System.Windows.Forms.Label passwordLabel;
 		private System.Windows.Forms.Label passwordConfirmLabel;
 		private System.Windows.Forms.Label mismatchedLabel;
+		private System.Windows.Forms.Button visibleButton;
+		private System.Windows.Forms.Button visibleConfirmButton;
 	}
 }

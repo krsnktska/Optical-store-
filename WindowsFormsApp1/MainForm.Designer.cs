@@ -39,6 +39,7 @@
 			this.nameOrEmailLabel = new System.Windows.Forms.Label();
 			this.passwordLabel = new System.Windows.Forms.Label();
 			this.errorLabel = new System.Windows.Forms.Label();
+			this.visibleButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainLabel
@@ -66,6 +67,7 @@
 			this.passwordTextBox.Name = "passwordTextBox";
 			this.passwordTextBox.Size = new System.Drawing.Size(282, 29);
 			this.passwordTextBox.TabIndex = 2;
+			this.passwordTextBox.UseSystemPasswordChar = true;
 			// 
 			// loginLabel
 			// 
@@ -82,9 +84,9 @@
 			this.labelcreateaccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelcreateaccount.Location = new System.Drawing.Point(164, 479);
 			this.labelcreateaccount.Name = "labelcreateaccount";
-			this.labelcreateaccount.Size = new System.Drawing.Size(185, 20);
+			this.labelcreateaccount.Size = new System.Drawing.Size(195, 20);
 			this.labelcreateaccount.TabIndex = 4;
-			this.labelcreateaccount.Text = "Ще не мате акаунту?";
+			this.labelcreateaccount.Text = "Ще не маєте акаунту?";
 			// 
 			// linkCreateAccount
 			// 
@@ -140,9 +142,20 @@
 			this.errorLabel.Size = new System.Drawing.Size(0, 13);
 			this.errorLabel.TabIndex = 9;
 			// 
+			// visibleButton
+			// 
+			this.visibleButton.Image = global::WindowsFormsApp1.Properties.Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+			this.visibleButton.Location = new System.Drawing.Point(472, 346);
+			this.visibleButton.Name = "visibleButton";
+			this.visibleButton.Size = new System.Drawing.Size(40, 40);
+			this.visibleButton.TabIndex = 10;
+			this.visibleButton.UseVisualStyleBackColor = true;
+			this.visibleButton.Click += new System.EventHandler(this.visibleButton_Click);
+			// 
 			// Main
 			// 
 			this.ClientSize = new System.Drawing.Size(634, 661);
+			this.Controls.Add(this.visibleButton);
 			this.Controls.Add(this.errorLabel);
 			this.Controls.Add(this.passwordLabel);
 			this.Controls.Add(this.nameOrEmailLabel);
@@ -174,6 +187,7 @@
 		private System.Windows.Forms.Label nameOrEmailLabel;
 		private System.Windows.Forms.Label passwordLabel;
 		private System.Windows.Forms.Label errorLabel;
+		private System.Windows.Forms.Button visibleButton;
 	}
 }
 

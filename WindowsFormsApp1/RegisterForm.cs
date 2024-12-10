@@ -2,15 +2,20 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp1.Properties;
 
 namespace Coursework
 {
 	public partial class Реєстрація : Form
 	{
+		private bool isPasswordVisible = false;
+		private bool isPasswordConfirmVisible = false;
+
 		public Реєстрація()
 		{
 			InitializeComponent();
 			registrationButton.Enabled = false;
+			StartPosition = FormStartPosition.CenterScreen;
 
 			surnameTextBox.TextChanged += textBoxChanged;
 			nameTextBox.TextChanged += textBoxChanged;
@@ -73,9 +78,15 @@ namespace Coursework
 				cmdInsert.Parameters.AddWithValue("@sex", sex);
 				cmdInsert.Parameters.AddWithValue("@password", password);
 
-				cmdInsert.ExecuteNonQuery();
-				MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+				int rowsAffected = cmdInsert.ExecuteNonQuery();
+				if (rowsAffected > 0)
+				{
+					MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show("Не вдалося виконати реєстрацію. Спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -84,9 +95,9 @@ namespace Coursework
 
 			finally
 			{
-
 				osDataBase.closeConnection();
 			}
+			this.Close();
 		}
 
 		private void ValidateChanges()
@@ -174,8 +185,39 @@ namespace Coursework
 					mismatchedLabel.Visible = false;
 				}
 			}
-
 			ValidateChanges();
+		}
+
+		private void visibleButton_Click(object sender, EventArgs e) //форма реєстрації 
+		{
+			if (isPasswordVisible)
+			{
+				visibleButton.Image = Resources.visibility_off_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordTextBox.UseSystemPasswordChar = false;
+				isPasswordVisible = false;
+			}
+			else
+			{
+				visibleButton.Image = Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordTextBox.UseSystemPasswordChar = true;
+				isPasswordVisible = true;
+			}
+		}
+
+		private void visibleConfirmButton_Click(object sender, EventArgs e)
+		{
+			if (isPasswordConfirmVisible)
+			{
+				visibleConfirmButton.Image = Resources.visibility_off_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordConfirmTextBox.UseSystemPasswordChar = false;
+				isPasswordConfirmVisible = false;
+			}
+			else
+			{
+				visibleConfirmButton.Image = Resources.visibility_17dp_000000_FILL0_wght400_GRAD0_opsz20;
+				passwordConfirmTextBox.UseSystemPasswordChar = true;
+				isPasswordConfirmVisible = true;
+			}
 		}
 	}
 }
