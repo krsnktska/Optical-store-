@@ -4,18 +4,17 @@ namespace Coursework
 {
 	internal class OSDataBase
 	{
-		SqlConnection sqlconnection = new SqlConnection(@"Data Source=DESKTOP-DC4VJD6;Initial Catalog=""OpticalStore"";Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+		static SqlConnection sqlconnection = new SqlConnection(@"Data Source=DESKTOP-DC4VJD6;Initial Catalog=""OpticalStore"";Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
-		public void openConnection()
+		public static void openConnection()
 		{
 			if (sqlconnection.State == System.Data.ConnectionState.Closed)
 			{
 				sqlconnection.Open();
 			}
-
 		}
 
-		public void closeConnection()
+		public static void closeConnection()
 		{
 			if (sqlconnection.State == System.Data.ConnectionState.Open)
 			{
@@ -23,7 +22,7 @@ namespace Coursework
 			}
 		}
 
-		public SqlConnection getConnection()
+		public static SqlConnection getConnection()
 		{
 			return sqlconnection;
 		}

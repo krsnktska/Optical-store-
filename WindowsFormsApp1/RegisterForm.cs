@@ -44,14 +44,11 @@ namespace Coursework
 
 			try
 			{
-				osDataBase.openConnection();
+				OSDataBase.openConnection();
 
-				string checkQuery = @"
-					SELECT COUNT(*) 
-					FROM [User] 
-					WHERE phone_number = @phoneNumber OR email = @email";
+				string checkQuery = @"SELECT COUNT(*) FROM [User] WHERE phone_number = @phoneNumber OR email = @email";
 
-				SqlCommand cmdCheck = new SqlCommand(checkQuery, osDataBase.getConnection());
+				SqlCommand cmdCheck = new SqlCommand(checkQuery, OSDataBase.getConnection());
 				cmdCheck.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 				cmdCheck.Parameters.AddWithValue("@email", email);
 
@@ -69,7 +66,7 @@ namespace Coursework
 						INSERT INTO [User] (surname, name, patronymic, phone_number, email, sex, password)
 						VALUES (@surname, @name, @patronymic, @phoneNumber, @email, @sex, @password)";
 
-				SqlCommand cmdInsert = new SqlCommand(insertQuery, osDataBase.getConnection());
+				SqlCommand cmdInsert = new SqlCommand(insertQuery, OSDataBase.getConnection());
 				cmdInsert.Parameters.AddWithValue("@surname", surname);
 				cmdInsert.Parameters.AddWithValue("@name", name);
 				cmdInsert.Parameters.AddWithValue("@patronymic", patronymic);
@@ -82,6 +79,7 @@ namespace Coursework
 				if (rowsAffected > 0)
 				{
 					MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					this.Close();
 				}
 				else
 				{
@@ -95,7 +93,7 @@ namespace Coursework
 
 			finally
 			{
-				osDataBase.closeConnection();
+				OSDataBase.closeConnection();
 			}
 			this.Close();
 		}
@@ -188,7 +186,7 @@ namespace Coursework
 			ValidateChanges();
 		}
 
-		private void visibleButton_Click(object sender, EventArgs e) //форма реєстрації 
+		private void visibleButton_Click(object sender, EventArgs e)
 		{
 			if (isPasswordVisible)
 			{
@@ -219,5 +217,35 @@ namespace Coursework
 				isPasswordConfirmVisible = true;
 			}
 		}
+
+		/*private bool CheckUser()
+		{
+			string phoneNumber = phoneNumberTextBox.Text.Trim();
+			string email = emailTextBox.Text.Trim();
+			string password = passwordTextBox.Text.Trim();
+
+			SqlDataAdapter adapter = new SqlDataAdapter();
+			DataTable table = new DataTable();
+
+
+			osDataBase.openConnection();
+
+			string checkQuery = @"SELECT COUNT(*) FROM [User] WHERE phone_number = @phoneNumber OR email = @email";
+
+			SqlCommand cmdCheck = new SqlCommand(checkQuery, osDataBase.getConnection());
+			adapter.SelectCommand = cmdCheck;
+			adapter.Fill(table);
+			if (table.Rows.Count > 0)
+			{
+				mismatchedLabel.Visible = true;
+				mismatchedLabel.Location = new Point(50, 510);
+				mismatchedLabel.Text = "Користувач з таким номером телефону або електронною поштою вже існує.";
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}*/
 	}
 }

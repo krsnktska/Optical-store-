@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 using WindowsFormsApp1.Properties;
 
 namespace Coursework
@@ -8,14 +10,14 @@ namespace Coursework
 	public partial class Main : System.Windows.Forms.Form
 	{
 		private bool isPasswordVisible = false;
+		private int userId;
 
 		public Main()
 		{
 			InitializeComponent();
 			StartPosition = FormStartPosition.CenterScreen;
+			this.Size = new Size(650, 700);
 		}
-
-		OSDataBase osDataBase = new OSDataBase();
 
 		private void loginButton_Click(object sender, System.EventArgs e)
 		{
@@ -50,28 +52,26 @@ namespace Coursework
 
 			try
 			{
-				osDataBase.openConnection();
-				string query = @"
-						SELECT COUNT(*) 
-						FROM [User]
-						WHERE (phone_number = @login OR email = @login) AND password = @password
-						";
+				OSDataBase.openConnection();
+				string query = @"SELECT number_of_the_client_card 
+								FROM [User] 
+								WHERE (phone_number = @login OR email = @login) AND password = @password";
 
-				SqlCommand cmd = new SqlCommand(query, osDataBase.getConnection());
+				SqlCommand cmd = new SqlCommand(query, OSDataBase.getConnection());
+
 				cmd.Parameters.AddWithValue("@login", login);
 				cmd.Parameters.AddWithValue("@password", password);
 
-				int userIsExists = (int)cmd.ExecuteScalar();
+				object result = cmd.ExecuteScalar();
 
-				if (userIsExists > 0)
+				int? userIsExists = (int?)result;
+
+				if (userIsExists != null)
 				{
-					MessageBox.Show("Вхід виконано успішно!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-				else if (userIsExists == 0)
-				{
-					errorLabel.Visible = true;
-					errorLabel.Location = new System.Drawing.Point(181, 385); ;
-					errorLabel.Text = "Не існує користувача з таким ім'ям та паролем.";
+					userId = (int)result;
+					this.Hide();
+					Home Home = new Home(userId);
+					Home.Show();
 				}
 				else
 				{
@@ -92,7 +92,7 @@ namespace Coursework
 			}
 			finally
 			{
-				osDataBase.closeConnection();
+				OSDataBase.closeConnection();
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace Coursework
 			registerForm.Show();
 		}
 
-		private void visibleButton_Click(object sender, EventArgs e) //форма входу
+		private void visibleButton_Click(object sender, EventArgs e)
 		{
 			if (isPasswordVisible)
 			{

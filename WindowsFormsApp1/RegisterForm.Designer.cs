@@ -100,7 +100,7 @@
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
 			this.phoneNumberTextBox.Size = new System.Drawing.Size(194, 20);
 			this.phoneNumberTextBox.TabIndex = 5;
-			this.phoneNumberTextBox.Text = "+380000000000";
+			this.phoneNumberTextBox.Text = "+380";
 			// 
 			// emailTextBox
 			// 
@@ -182,7 +182,7 @@
 			this.sexComboBox.Items.AddRange(new object[] {
             "чоловік",
             "жінка",
-            "не бажаю вказувати стать "});
+            "інше"});
 			this.sexComboBox.Location = new System.Drawing.Point(147, 370);
 			this.sexComboBox.Name = "sexComboBox";
 			this.sexComboBox.Size = new System.Drawing.Size(195, 21);

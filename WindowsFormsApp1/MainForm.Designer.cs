@@ -33,13 +33,13 @@
 			this.loginTextBox = new System.Windows.Forms.TextBox();
 			this.passwordTextBox = new System.Windows.Forms.TextBox();
 			this.loginLabel = new System.Windows.Forms.Label();
-			this.labelcreateaccount = new System.Windows.Forms.Label();
+			this.labelCreateAccount = new System.Windows.Forms.Label();
 			this.linkCreateAccount = new System.Windows.Forms.LinkLabel();
-			this.loginButton = new System.Windows.Forms.Button();
 			this.nameOrEmailLabel = new System.Windows.Forms.Label();
 			this.passwordLabel = new System.Windows.Forms.Label();
 			this.errorLabel = new System.Windows.Forms.Label();
 			this.visibleButton = new System.Windows.Forms.Button();
+			this.loginButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// mainLabel
@@ -78,15 +78,15 @@
 			this.loginLabel.TabIndex = 3;
 			this.loginLabel.Text = "Увійти";
 			// 
-			// labelcreateaccount
+			// labelCreateAccount
 			// 
-			this.labelcreateaccount.AutoSize = true;
-			this.labelcreateaccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelcreateaccount.Location = new System.Drawing.Point(164, 479);
-			this.labelcreateaccount.Name = "labelcreateaccount";
-			this.labelcreateaccount.Size = new System.Drawing.Size(195, 20);
-			this.labelcreateaccount.TabIndex = 4;
-			this.labelcreateaccount.Text = "Ще не маєте акаунту?";
+			this.labelCreateAccount.AutoSize = true;
+			this.labelCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.labelCreateAccount.Location = new System.Drawing.Point(164, 479);
+			this.labelCreateAccount.Name = "labelCreateAccount";
+			this.labelCreateAccount.Size = new System.Drawing.Size(195, 20);
+			this.labelCreateAccount.TabIndex = 4;
+			this.labelCreateAccount.Text = "Ще не маєте акаунту?";
 			// 
 			// linkCreateAccount
 			// 
@@ -99,18 +99,6 @@
 			this.linkCreateAccount.TabStop = true;
 			this.linkCreateAccount.Text = "Зареєструватись";
 			this.linkCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCreateAccount_LinkClicked);
-			// 
-			// loginButton
-			// 
-			this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.loginButton.Location = new System.Drawing.Point(250, 417);
-			this.loginButton.Name = "loginButton";
-			this.loginButton.Size = new System.Drawing.Size(142, 35);
-			this.loginButton.TabIndex = 6;
-			this.loginButton.Text = "Увійти";
-			this.loginButton.UseVisualStyleBackColor = true;
-			this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
 			// 
 			// nameOrEmailLabel
 			// 
@@ -148,9 +136,21 @@
 			this.visibleButton.Location = new System.Drawing.Point(472, 346);
 			this.visibleButton.Name = "visibleButton";
 			this.visibleButton.Size = new System.Drawing.Size(40, 40);
-			this.visibleButton.TabIndex = 10;
+			this.visibleButton.TabIndex = 4;
 			this.visibleButton.UseVisualStyleBackColor = true;
 			this.visibleButton.Click += new System.EventHandler(this.visibleButton_Click);
+			// 
+			// loginButton
+			// 
+			this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.loginButton.Location = new System.Drawing.Point(250, 417);
+			this.loginButton.Name = "loginButton";
+			this.loginButton.Size = new System.Drawing.Size(142, 35);
+			this.loginButton.TabIndex = 3;
+			this.loginButton.Text = "Увійти";
+			this.loginButton.UseVisualStyleBackColor = true;
+			this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
 			// 
 			// Main
 			// 
@@ -161,7 +161,7 @@
 			this.Controls.Add(this.nameOrEmailLabel);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.linkCreateAccount);
-			this.Controls.Add(this.labelcreateaccount);
+			this.Controls.Add(this.labelCreateAccount);
 			this.Controls.Add(this.loginLabel);
 			this.Controls.Add(this.passwordTextBox);
 			this.Controls.Add(this.loginTextBox);
@@ -181,7 +181,7 @@
 		private System.Windows.Forms.TextBox loginTextBox;
 		private System.Windows.Forms.TextBox passwordTextBox;
 		private System.Windows.Forms.Label loginLabel;
-		private System.Windows.Forms.Label labelcreateaccount;
+		private System.Windows.Forms.Label labelCreateAccount;
 		private System.Windows.Forms.LinkLabel linkCreateAccount;
 		private System.Windows.Forms.Button loginButton;
 		private System.Windows.Forms.Label nameOrEmailLabel;
