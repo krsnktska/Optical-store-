@@ -73,7 +73,6 @@ namespace Coursework
 					errorLabel.Location = new System.Drawing.Point(181, 385); ;
 					errorLabel.Text = "Не існує користувача з таким ім'ям та паролем.";
 				}
-
 				else
 				{
 					errorLabel.Visible = true;
