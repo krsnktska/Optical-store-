@@ -259,11 +259,11 @@ namespace WindowsFormsApp1
 		{
 			this.Close();
 		}
+
 		private void generatePdfButton_Click(object sender, EventArgs e)
 		{
 			List<Item> items = Item.GetItems();
 
-			// Використовуємо SaveFileDialog, аби користувач міг вибрати де зберегти PDF
 			using (SaveFileDialog sfd = new SaveFileDialog())
 			{
 				sfd.Filter = "PDF files (*.pdf)|*.pdf";
@@ -271,10 +271,8 @@ namespace WindowsFormsApp1
 
 				if (sfd.ShowDialog() == DialogResult.OK)
 				{
-					// Шлях, де створиться PDF
 					string pdfPath = sfd.FileName;
 
-					// Створюємо документ із полями відступів
 					Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
 
 					try
@@ -282,13 +280,9 @@ namespace WindowsFormsApp1
 						PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(pdfPath, FileMode.Create));
 						doc.Open();
 
-						// ** 1) Завантажуємо шрифт, який підтримує кирилицю **
-						// Припустимо, що у нас є файл шрифту "arialuni.ttf" у системній папці шрифтів Windows
-						// Або власний .ttf, який ви поклали в проєкт. Головне – шлях і наявність кириличних гліфів.
 
 						byte[] fontData = Properties.Resources.roboto;
 
-						// Створюємо BaseFont (з кодуванням Identity-H та EMBEDDED)
 						BaseFont baseFont = BaseFont.CreateFont(
 							"roboto.ttf",
 							BaseFont.IDENTITY_H,
@@ -298,13 +292,10 @@ namespace WindowsFormsApp1
 							null
 						);
 
-						// Створюємо Font на основі BaseFont
-						// Розмір шрифту, стиль, колір тощо можна змінити
 						iTextSharp.text.Font headerFont = new iTextSharp.text.Font(baseFont, 16, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
 						iTextSharp.text.Font columnHeaderFont = new iTextSharp.text.Font(baseFont, 10, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
 						iTextSharp.text.Font cellFont = new iTextSharp.text.Font(baseFont, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-						// 2) Додаємо заголовок
 						Paragraph mainHeader = new Paragraph("Товари", headerFont)
 						{
 							Alignment = Element.ALIGN_CENTER,
@@ -312,17 +303,14 @@ namespace WindowsFormsApp1
 						};
 						doc.Add(mainHeader);
 
-						// 3) Створюємо таблицю на 6 колонок
 						PdfPTable table = new PdfPTable(6)
 						{
 							WidthPercentage = 100
 						};
 
-						// Задаємо відносні ширини, щоби числові колонки були вужчі
 						float[] columnWidths = new float[] { 1f, 2.5f, 1f, 3f, 1f, 2f };
 						table.SetWidths(columnWidths);
 
-						// 4) Додаємо заголовки колонок (українською, приклад)
 						table.AddCell(new PdfPCell(new Phrase("ID", columnHeaderFont)));
 						table.AddCell(new PdfPCell(new Phrase("Назва товару", columnHeaderFont)));
 						table.AddCell(new PdfPCell(new Phrase("Ціна", columnHeaderFont)));
@@ -330,7 +318,6 @@ namespace WindowsFormsApp1
 						table.AddCell(new PdfPCell(new Phrase("Кількість", columnHeaderFont)));
 						table.AddCell(new PdfPCell(new Phrase("Виробник", columnHeaderFont)));
 
-						// 5) Заповнюємо комірки таблиці
 						foreach (var item in items)
 						{
 							table.AddCell(new PdfPCell(new Phrase(item.ItemID.ToString(), cellFont)));
@@ -351,7 +338,7 @@ namespace WindowsFormsApp1
 						doc.Close();
 					}
 
-					MessageBox.Show("PDF успішно згенеровано!");
+					MessageBox.Show("Звіт створено");
 				}
 			}
 		}

@@ -39,6 +39,7 @@
 			this.dateLabel = new System.Windows.Forms.Label();
 			this.cancelButton = new System.Windows.Forms.Button();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.getBillButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// itemsFlowLayoutPanel
@@ -137,11 +138,22 @@
 			this.toolTip.InitialDelay = 100;
 			this.toolTip.ReshowDelay = 100;
 			// 
+			// getBillButton
+			// 
+			this.getBillButton.Location = new System.Drawing.Point(13, 472);
+			this.getBillButton.Name = "getBillButton";
+			this.getBillButton.Size = new System.Drawing.Size(270, 23);
+			this.getBillButton.TabIndex = 10;
+			this.getBillButton.Text = "Отримати чек";
+			this.getBillButton.UseVisualStyleBackColor = true;
+			this.getBillButton.Click += new System.EventHandler(this.getBillButton_Click);
+			// 
 			// OrderForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(296, 462);
+			this.ClientSize = new System.Drawing.Size(296, 507);
+			this.Controls.Add(this.getBillButton);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.dateLabel);
 			this.Controls.Add(this.commentLabel);
@@ -173,5 +185,6 @@
 		private System.Windows.Forms.Label dateLabel;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.ToolTip toolTip;
+		private System.Windows.Forms.Button getBillButton;
 	}
 }
