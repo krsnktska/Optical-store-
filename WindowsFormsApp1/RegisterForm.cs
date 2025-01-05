@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 using WindowsFormsApp1.Properties;
 
 namespace Coursework
@@ -64,7 +65,8 @@ namespace Coursework
 
 				string insertQuery = @"
 						INSERT INTO [User] (surname, name, patronymic, phone_number, email, sex, password)
-						VALUES (@surname, @name, @patronymic, @phoneNumber, @email, @sex, @password)";
+						VALUES (@surname, @name, @patronymic, @phoneNumber, @email, @sex, @password)
+						SELECT SCOPE_IDENTITY()";
 
 				SqlCommand cmdInsert = new SqlCommand(insertQuery, OSDataBase.getConnection());
 				cmdInsert.Parameters.AddWithValue("@surname", surname);
@@ -75,16 +77,12 @@ namespace Coursework
 				cmdInsert.Parameters.AddWithValue("@sex", sex);
 				cmdInsert.Parameters.AddWithValue("@password", password);
 
-				int rowsAffected = cmdInsert.ExecuteNonQuery();
-				if (rowsAffected > 0)
-				{
-					MessageBox.Show("Реєстрація успішна!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					this.Close();
-				}
-				else
-				{
-					MessageBox.Show("Не вдалося виконати реєстрацію. Спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
+				object result = cmdInsert.ExecuteScalar();
+				Decimal insertedAddressId = (Decimal)result;
+				int userId = (int)insertedAddressId;
+
+				Cart.CreateCartForUser(userId);
+				this.Close();
 			}
 			catch (Exception ex)
 			{

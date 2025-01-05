@@ -44,6 +44,10 @@
 			this.editButton = new System.Windows.Forms.Button();
 			this.saveButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.addressesLabel = new System.Windows.Forms.Label();
+			this.addressesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.addAddressButton = new System.Windows.Forms.Button();
 			this.homePicture = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.homePicture)).BeginInit();
 			this.SuspendLayout();
@@ -182,10 +186,38 @@
 			this.cancelButton.Visible = false;
 			this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
 			// 
+			// addressesLabel
+			// 
+			this.addressesLabel.AutoSize = true;
+			this.addressesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.addressesLabel.Location = new System.Drawing.Point(492, 62);
+			this.addressesLabel.Name = "addressesLabel";
+			this.addressesLabel.Size = new System.Drawing.Size(84, 24);
+			this.addressesLabel.TabIndex = 16;
+			this.addressesLabel.Text = "Адреси";
+			// 
+			// addressesFlowLayoutPanel
+			// 
+			this.addressesFlowLayoutPanel.AutoScroll = true;
+			this.addressesFlowLayoutPanel.Location = new System.Drawing.Point(364, 109);
+			this.addressesFlowLayoutPanel.Name = "addressesFlowLayoutPanel";
+			this.addressesFlowLayoutPanel.Size = new System.Drawing.Size(335, 247);
+			this.addressesFlowLayoutPanel.TabIndex = 17;
+			// 
+			// addAddressButton
+			// 
+			this.addAddressButton.Location = new System.Drawing.Point(485, 379);
+			this.addAddressButton.Name = "addAddressButton";
+			this.addAddressButton.Size = new System.Drawing.Size(103, 23);
+			this.addAddressButton.TabIndex = 18;
+			this.addAddressButton.Text = "Додати адресу";
+			this.addAddressButton.UseVisualStyleBackColor = true;
+			this.addAddressButton.Click += new System.EventHandler(this.addAddressButton_Click);
+			// 
 			// homePicture
 			// 
 			this.homePicture.Image = global::WindowsFormsApp1.Properties.Resources.home;
-			this.homePicture.Location = new System.Drawing.Point(358, 12);
+			this.homePicture.Location = new System.Drawing.Point(678, 12);
 			this.homePicture.Name = "homePicture";
 			this.homePicture.Size = new System.Drawing.Size(38, 41);
 			this.homePicture.TabIndex = 15;
@@ -196,7 +228,10 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(418, 445);
+			this.ClientSize = new System.Drawing.Size(728, 445);
+			this.Controls.Add(this.addAddressButton);
+			this.Controls.Add(this.addressesFlowLayoutPanel);
+			this.Controls.Add(this.addressesLabel);
 			this.Controls.Add(this.homePicture);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.saveButton);
@@ -223,6 +258,8 @@
 
 		}
 
+		private System.Windows.Forms.ListBox addresseslistBox;
+
 		#endregion
 
 		private System.Windows.Forms.Label surnameLabel;
@@ -241,5 +278,9 @@
 		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.Button cancelButton;
 		private System.Windows.Forms.PictureBox homePicture;
+		private System.Windows.Forms.Label addressesLabel;
+		private System.Windows.Forms.FlowLayoutPanel addressesFlowLayoutPanel;
+		private System.Windows.Forms.Button addAddressButton;
+		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 	}
 }

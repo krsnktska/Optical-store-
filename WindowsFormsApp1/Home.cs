@@ -28,14 +28,14 @@ namespace WindowsFormsApp1
 
 		private void cartPictureBox_Click(object sender, System.EventArgs e)
 		{
-			Cart cartForm = new Cart();
+			CartForm cartForm = new CartForm(userId);
 			cartForm.Show();
 		}
 
 		private void historyPictureBox_Click(object sender, System.EventArgs e)
 		{
-			History historyForm = new History();
-			historyForm.Show();
+			OrdersForm ordersForm = new OrdersForm(userId);
+			ordersForm.Show();
 		}
 
 		private void Home_FormClosed(object sender, FormClosedEventArgs e)

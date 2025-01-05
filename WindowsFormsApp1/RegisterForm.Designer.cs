@@ -274,7 +274,9 @@
 			this.Controls.Add(this.surnameTextBox);
 			this.Controls.Add(this.registrationButton);
 			this.Controls.Add(this.registrationLabel);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "Реєстрація";
 			this.Text = "RegisterForm";
 			this.ResumeLayout(false);

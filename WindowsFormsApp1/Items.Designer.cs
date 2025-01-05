@@ -48,6 +48,10 @@
 			this.fromCostText = new System.Windows.Forms.TextBox();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.homePicture = new System.Windows.Forms.PictureBox();
+			this.popularItemsFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.itemsCountLabel = new System.Windows.Forms.Label();
+			this.generatePdfButton = new System.Windows.Forms.Button();
 			this.groupByQuantity.SuspendLayout();
 			this.groupByCost.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.homePicture)).BeginInit();
@@ -57,21 +61,21 @@
 			// 
 			this.itemsFlowPanel.AutoScroll = true;
 			this.itemsFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.itemsFlowPanel.Location = new System.Drawing.Point(226, 93);
+			this.itemsFlowPanel.Location = new System.Drawing.Point(226, 59);
 			this.itemsFlowPanel.Name = "itemsFlowPanel";
-			this.itemsFlowPanel.Size = new System.Drawing.Size(1250, 538);
+			this.itemsFlowPanel.Size = new System.Drawing.Size(959, 536);
 			this.itemsFlowPanel.TabIndex = 0;
 			// 
 			// searchTextBox
 			// 
-			this.searchTextBox.Location = new System.Drawing.Point(457, 66);
+			this.searchTextBox.Location = new System.Drawing.Point(436, 35);
 			this.searchTextBox.Name = "searchTextBox";
 			this.searchTextBox.Size = new System.Drawing.Size(260, 20);
 			this.searchTextBox.TabIndex = 1;
 			// 
 			// searchButton
 			// 
-			this.searchButton.Location = new System.Drawing.Point(723, 64);
+			this.searchButton.Location = new System.Drawing.Point(702, 33);
 			this.searchButton.Name = "searchButton";
 			this.searchButton.Size = new System.Drawing.Size(75, 23);
 			this.searchButton.TabIndex = 2;
@@ -81,7 +85,7 @@
 			// 
 			// cancelSearchButton
 			// 
-			this.cancelSearchButton.Location = new System.Drawing.Point(804, 64);
+			this.cancelSearchButton.Location = new System.Drawing.Point(783, 33);
 			this.cancelSearchButton.Name = "cancelSearchButton";
 			this.cancelSearchButton.Size = new System.Drawing.Size(75, 23);
 			this.cancelSearchButton.TabIndex = 3;
@@ -92,7 +96,7 @@
 			// sortByLabel
 			// 
 			this.sortByLabel.AutoSize = true;
-			this.sortByLabel.Location = new System.Drawing.Point(223, 69);
+			this.sortByLabel.Location = new System.Drawing.Point(223, 43);
 			this.sortByLabel.Name = "sortByLabel";
 			this.sortByLabel.Size = new System.Drawing.Size(80, 13);
 			this.sortByLabel.TabIndex = 4;
@@ -108,7 +112,7 @@
             "назвою (Я-А)",
             "зростанням ціни",
             "спаданням ціни"});
-			this.sortTypes.Location = new System.Drawing.Point(309, 66);
+			this.sortTypes.Location = new System.Drawing.Point(309, 35);
 			this.sortTypes.Name = "sortTypes";
 			this.sortTypes.Size = new System.Drawing.Size(121, 21);
 			this.sortTypes.TabIndex = 0;
@@ -120,7 +124,7 @@
 			this.groupByQuantity.Controls.Add(this.forQuantity);
 			this.groupByQuantity.Controls.Add(this.fromQuantityText);
 			this.groupByQuantity.Controls.Add(this.fromQuantity);
-			this.groupByQuantity.Location = new System.Drawing.Point(12, 90);
+			this.groupByQuantity.Location = new System.Drawing.Point(12, 59);
 			this.groupByQuantity.Name = "groupByQuantity";
 			this.groupByQuantity.Size = new System.Drawing.Size(200, 72);
 			this.groupByQuantity.TabIndex = 5;
@@ -167,7 +171,7 @@
 			this.groupByCost.Controls.Add(this.forCost);
 			this.groupByCost.Controls.Add(this.fromCost);
 			this.groupByCost.Controls.Add(this.fromCostText);
-			this.groupByCost.Location = new System.Drawing.Point(12, 184);
+			this.groupByCost.Location = new System.Drawing.Point(12, 137);
 			this.groupByCost.Name = "groupByCost";
 			this.groupByCost.Size = new System.Drawing.Size(200, 72);
 			this.groupByCost.TabIndex = 6;
@@ -215,18 +219,59 @@
 			// homePicture
 			// 
 			this.homePicture.Image = global::WindowsFormsApp1.Properties.Resources.home;
-			this.homePicture.Location = new System.Drawing.Point(1429, 12);
+			this.homePicture.Location = new System.Drawing.Point(12, 9);
 			this.homePicture.Name = "homePicture";
 			this.homePicture.Size = new System.Drawing.Size(43, 44);
 			this.homePicture.TabIndex = 7;
 			this.homePicture.TabStop = false;
 			this.homePicture.Click += new System.EventHandler(this.homePicture_Click);
 			// 
+			// popularItemsFlowPanel
+			// 
+			this.popularItemsFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.popularItemsFlowPanel.Location = new System.Drawing.Point(1191, 59);
+			this.popularItemsFlowPanel.Name = "popularItemsFlowPanel";
+			this.popularItemsFlowPanel.Size = new System.Drawing.Size(250, 536);
+			this.popularItemsFlowPanel.TabIndex = 8;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.Location = new System.Drawing.Point(1187, 36);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(163, 20);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Купують найчастіше";
+			// 
+			// itemsCountLabel
+			// 
+			this.itemsCountLabel.AutoSize = true;
+			this.itemsCountLabel.Location = new System.Drawing.Point(1050, 43);
+			this.itemsCountLabel.Name = "itemsCountLabel";
+			this.itemsCountLabel.Size = new System.Drawing.Size(46, 13);
+			this.itemsCountLabel.TabIndex = 10;
+			this.itemsCountLabel.Text = "Всього ";
+			// 
+			// generatePdfButton
+			// 
+			this.generatePdfButton.Location = new System.Drawing.Point(12, 571);
+			this.generatePdfButton.Name = "generatePdfButton";
+			this.generatePdfButton.Size = new System.Drawing.Size(208, 23);
+			this.generatePdfButton.TabIndex = 11;
+			this.generatePdfButton.Text = "Отримати список товарів";
+			this.generatePdfButton.UseVisualStyleBackColor = true;
+			this.generatePdfButton.Click += new System.EventHandler(this.generatePdfButton_Click);
+			// 
 			// Items
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1484, 641);
+			this.ClientSize = new System.Drawing.Size(1452, 602);
+			this.Controls.Add(this.generatePdfButton);
+			this.Controls.Add(this.itemsCountLabel);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.popularItemsFlowPanel);
 			this.Controls.Add(this.homePicture);
 			this.Controls.Add(this.groupByCost);
 			this.Controls.Add(this.groupByQuantity);
@@ -236,7 +281,8 @@
 			this.Controls.Add(this.searchButton);
 			this.Controls.Add(this.searchTextBox);
 			this.Controls.Add(this.itemsFlowPanel);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "Items";
@@ -272,5 +318,9 @@
 		private System.Windows.Forms.TextBox fromQuantityText;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.PictureBox homePicture;
+		private System.Windows.Forms.FlowLayoutPanel popularItemsFlowPanel;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label itemsCountLabel;
+		private System.Windows.Forms.Button generatePdfButton;
 	}
 }

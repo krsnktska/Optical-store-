@@ -79,12 +79,6 @@ namespace Coursework
 					errorLabel.Location = new System.Drawing.Point(181, 385); ;
 					errorLabel.Text = "Невірний номер телефону, email або пароль.";
 				}
-
-				if (!System.Text.RegularExpressions.Regex.IsMatch(login, @"^\+380\d{9}$"))
-				{
-					errorLabel.Visible = true;
-					errorLabel.Text = "Введіть номер телефону у форматі +380XXXXXXXXX.";
-				}
 			}
 			catch (Exception ex)
 			{
